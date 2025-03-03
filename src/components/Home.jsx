@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Errors from "./Errors Box";
 
 export default function Home({
   search,
@@ -9,6 +10,7 @@ export default function Home({
   number,
   setNumber,
 }) {
+  const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,16 +19,37 @@ export default function Home({
     setNumber("");
   }, []);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setErrors([]);
+
+    if (search.length == 0) {
+      setErrors((prev) => [...prev, "Search field is required."]);
+      return;
+    }
+    if (name.length == 0) {
+      setErrors((prev) => [...prev, "Name is required."]);
+      return;
+    }
+    if (number.length == 0) {
+      setErrors((prev) => [...prev, "Number is required."]);
+      return;
+    }
+
+    navigate("/map");
+  };
   return (
     <section className="h-full">
-      <h2 className="bg-primary w-full p-5 text-center font-mono text-4xl text-white uppercase">
+      <h2 className="bg-primary w-full p-5 text-center font-mono text-4xl text-white uppercase shadow-[0_10px_10px_rgba(4,71,30,0.4)]">
         Ottermap Frontend Task
       </h2>
       <div className="container mx-auto mt-14 flex flex-col items-center gap-10">
-        <div className="border-primary flex flex-col justify-center gap-5 rounded-2xl border-2 p-5">
+        <div className="border-primary flex flex-col justify-center gap-5 rounded-2xl border-2 p-5 shadow-lg shadow-[#04471e88]">
+          {errors.length != 0 && <Errors errors={errors} />}
+
           <div className="flex items-center justify-between gap-3">
             <label htmlFor="search" className="cursor-pointer font-medium">
-              Search :
+              Search : <span className="font-bold text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -39,7 +62,7 @@ export default function Home({
           </div>
           <div className="flex items-center justify-between gap-3">
             <label htmlFor="name" className="cursor-pointer font-medium">
-              First Name :
+              First Name : <span className="font-bold text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -52,7 +75,7 @@ export default function Home({
           </div>
           <div className="flex items-center justify-between gap-3">
             <label htmlFor="number" className="cursor-pointer font-medium">
-              Number :
+              Number : <span className="font-bold text-red-500">*</span>
             </label>
             <input
               type="tel"
@@ -66,9 +89,7 @@ export default function Home({
           </div>
           <button
             className="bg-primary hover:text-primary border-primary cursor-pointer rounded-xl border-2 px-5 py-2 font-mono text-xl font-bold text-white transition-all duration-300 ease-in-out hover:bg-white"
-            onClick={() => {
-              navigate("/map");
-            }}
+            onClick={handleSubmit}
           >
             Submit
           </button>

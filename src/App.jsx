@@ -27,19 +27,7 @@ function App() {
               />
             }
           />
-          <Route
-            path="/map"
-            element={
-              <Map
-                search={search}
-                setSearch={setSearch}
-                name={name}
-                setName={setName}
-                number={number}
-                setNumber={setNumber}
-              />
-            }
-          />
+          <Route path="/map" element={<Map name={name} />} />
         </Routes>
       </Router>
     </div>
