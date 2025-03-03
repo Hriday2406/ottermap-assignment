@@ -2,4 +2,7 @@
 
 @theme {
   --color-primary: #04471e;
+  --font-script: "Dancing Script", "cursive";
+  --font-roboto: "Roboto", "sans-serif";
+  --font-roboto-mono: "Roboto Mono", "monospace";
 }
