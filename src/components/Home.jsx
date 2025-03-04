@@ -36,7 +36,7 @@ export default function Home({
   };
   return (
     <section className="">
-      <h2 className="bg-primary w-full p-5 text-center font-mono text-4xl text-white uppercase shadow-[0_10px_10px_rgba(4,71,30,0.4)]">
+      <h2 className="bg-primary w-full p-5 text-center font-mono text-3xl text-white uppercase shadow-[0_10px_10px_rgba(4,71,30,0.4)] sm:text-4xl">
         Ottermap Frontend Task
       </h2>
       <div className="container mx-auto mt-14 flex flex-col items-center gap-10">

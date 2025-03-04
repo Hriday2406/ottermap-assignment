@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 function Button({ text, onClick }) {
   return (
     <button
-      className="border-primary text-primary hover:bg-primary cursor-pointer rounded-xl border-2 bg-white px-5 py-2 font-mono font-bold tracking-wider transition-all duration-300 ease-in-out hover:text-white"
+      className="border-primary text-primary hover:bg-primary cursor-pointer rounded-lg border-2 bg-white px-2 py-1 font-mono text-sm font-bold tracking-wider transition-all duration-300 ease-in-out hover:text-white sm:rounded-xl sm:px-5 sm:py-2"
       onClick={onClick}
     >
       {text}
@@ -104,20 +104,20 @@ export default function Map({ name }) {
 
   return (
     <section className="flex h-9/10 flex-col">
-      <h2 className="bg-primary w-full p-3 text-center font-mono text-3xl text-white shadow-lg">
+      <h2 className="bg-primary w-full p-3 text-center font-mono text-2xl text-white shadow-lg sm:p-3 sm:text-3xl">
         Welcome {name}
       </h2>
       <div className="flex-1">
         <div className="flex h-full flex-col">
-          <div className="z-5 flex items-center justify-center gap-5 px-5 py-2 shadow-[0_10px_10px_rgba(0,0,0,0.4)]">
+          <div className="z-5 flex items-center justify-center gap-2 p-2 shadow-[0_10px_10px_rgba(0,0,0,0.4)] sm:gap-5 sm:px-5">
             <button
-              className={`border-primary hover:bg-primary cursor-pointer rounded-xl border-2 px-5 py-2 font-mono font-bold tracking-wider transition-all duration-300 ease-in-out hover:text-white ${btnFn === "draw" ? "bg-primary text-white" : "text-primary bg-white"}`}
+              className={`border-primary hover:bg-primary cursor-pointer rounded-lg border-2 px-2 py-1 font-mono text-sm font-bold tracking-wider transition-all duration-300 ease-in-out hover:text-white sm:rounded-xl sm:px-5 sm:py-2 ${btnFn === "draw" ? "bg-primary text-white" : "text-primary bg-white"}`}
               onClick={handleDrawPolygon}
             >
               Draw
             </button>
             <button
-              className={`border-primary hover:bg-primary cursor-pointer rounded-xl border-2 px-5 py-2 font-mono font-bold tracking-wider transition-all duration-300 ease-in-out hover:text-white ${btnFn === "edit" ? "bg-primary text-white" : "text-primary bg-white"}`}
+              className={`border-primary hover:bg-primary cursor-pointer rounded-lg border-2 px-2 py-1 font-mono text-sm font-bold tracking-wider transition-all duration-300 ease-in-out hover:text-white sm:rounded-xl sm:px-5 sm:py-2 ${btnFn === "edit" ? "bg-primary text-white" : "text-primary bg-white"}`}
               onClick={handleEditPolygon}
             >
               Edit
