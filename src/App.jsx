@@ -10,7 +10,7 @@ function App() {
   const [number, setNumber] = useState("");
 
   return (
-    <div className="min-h-dvh">
+    <div className="h-screen">
       <Router>
         <Header />
         <Routes>

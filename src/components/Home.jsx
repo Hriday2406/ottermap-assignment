@@ -23,10 +23,6 @@ export default function Home({
     e.preventDefault();
     setErrors([]);
 
-    if (search.length == 0) {
-      setErrors((prev) => [...prev, "Search field is required."]);
-      return;
-    }
     if (name.length == 0) {
       setErrors((prev) => [...prev, "Name is required."]);
       return;
@@ -39,7 +35,7 @@ export default function Home({
     navigate("/map");
   };
   return (
-    <section className="h-full">
+    <section className="">
       <h2 className="bg-primary w-full p-5 text-center font-mono text-4xl text-white uppercase shadow-[0_10px_10px_rgba(4,71,30,0.4)]">
         Ottermap Frontend Task
       </h2>
@@ -49,7 +45,7 @@ export default function Home({
 
           <div className="flex items-center justify-between gap-3">
             <label htmlFor="search" className="cursor-pointer font-medium">
-              Search : <span className="font-bold text-red-500">*</span>
+              Search :
             </label>
             <input
               type="text"

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <header className="flex justify-center p-8">
+    <header className="flex h-10/100 items-center justify-center">
       <Link to="/">
         <img
           src="./logo.webp"
